@@ -1,18 +1,20 @@
-const Card = () => {
+import PropTypes from 'prop-types';
+
+const Card = ({ title, price, category, image }) => {
     return (
         <div className='bg-white cursor-pointer w-56 rounded-lg shadow-lg'>
             <figure className='relative mb-3 w-full h-4/5'>
                 <span className='absolute bottom-0 left-0 bg-white/60 rounded-lg text-black text-sm m-2 px-3 py-.5'>
-                    Electronics
+                    {category}
                 </span>
-                <img className='w-full h-full object-cover rounded-lg' src='https://th.bing.com/th/id/OIP.h6UyuKbMu8BRY7PvjH8H6wHaHa?pid=ImgDet&rs=1' alt='headphones' />
+                <img className='w-full h-full object-cover rounded-lg' src={image} alt={title} />
             </figure>
-            <p className='flex justify-around items-center'>
-                <span className='text-sm font-light'>
-                    ATH-M50x
+            <p className='flex flex-col justify-around items-center'>
+                <span className='text-sm font-light text-center'>
+                    {title}
                 </span>
                 <strong className='text-lg'>
-                    $49
+                    ${price}
                 </strong>
             </p>
             <div className='w-full flex items-center justify-center'>
@@ -22,6 +24,13 @@ const Card = () => {
             </div>
         </div>
     );
+}
+
+Card.propTypes = {
+    title: PropTypes.string,
+    price: PropTypes.number,
+    category: PropTypes.string,
+    image: PropTypes.string,
 }
 
 export default Card;

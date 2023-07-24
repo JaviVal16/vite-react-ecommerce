@@ -6,15 +6,12 @@ export function useFetch(url) {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        const abortController = new AbortController();
         setLoading(true);
-        fetch(url, { signal: abortController.signal })
+        fetch(url)
             .then(res => res.json())
             .then(json => setData(json))
             .catch((error) => setError(error))
             .finally(() => setLoading(false));
-
-        return () => abortController.abort();
     }, []);
 
     return { data, loading, error };
