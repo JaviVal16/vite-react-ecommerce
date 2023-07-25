@@ -10,7 +10,7 @@ const Card = ({ title, price, category, image }) => {
                 <img className='w-full h-full object-cover rounded-lg' src={image} alt={title} />
             </figure>
             <p className='flex flex-col justify-around items-center'>
-                <span className='text-sm font-light text-center'>
+                <span className='text-sm font-light text-center h-5 text-ellipsis overflow-hidden'>
                     {title}
                 </span>
                 <strong className='text-lg'>
