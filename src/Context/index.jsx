@@ -1,11 +1,25 @@
-import { createContext } from 'react';
+import { createContext, useState } from 'react';
 
-const CartShopContext = createContext();
+import PropTypes from 'prop-types';
 
-export const cartShopProvider = ({ children }) => {
+export const CartShopContext = createContext();
+
+export const CartShopProvider = ({ children }) => {
+    const [counter, setCounter] = useState(0);
+
     return (
-        <CartShopContext.Provider>
+        <CartShopContext.Provider
+            value={{
+                counter,
+                setCounter
+            }}
+        >
             {children}
         </CartShopContext.Provider>
     )
 }
+
+CartShopProvider.propTypes = {
+    children: PropTypes.node
+}
+
