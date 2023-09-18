@@ -12,7 +12,7 @@ function Home() {
   return (
     <div className='w-full flex flex-col items-center '>
       <h1 className='text-3xl font-bold underline'>Home</h1>
-      <section className='grid gap-4 grid-cols-4 w-full max-w-screen-lg overflow-x-hidden'>
+      <section className='grid gap-4 grid-cols-4 w-full max-w-screen-lg'>
         <SideCardProduct />
         {loading && <h2>Loading...</h2>}
         {error && <h2>ERROR: {error}</h2>}
